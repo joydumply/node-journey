@@ -12,8 +12,6 @@ This repo documents that process: working code from each topic, plus a running c
 
 **Currently: Week 2 of 10 complete.**
 
-*(update this line as weeks close out)*
-
 ## Tech stack covered
 
 Node.js · Express · PostgreSQL · Prisma · JWT · Jest · Supertest · TypeScript · NestJS · Docker
@@ -36,10 +34,10 @@ Node.js · Express · PostgreSQL · Prisma · JWT · Jest · Supertest · TypeSc
 - [x] Practical: implement `myPromiseAll` from scratch
 
 ### Week 3 — Express REST API
-- [ ] Routing & middleware
-- [ ] Request/response lifecycle
-- [ ] Error-handling middleware
-- [ ] Practical: build REST API endpoints
+- [x] Routing & middleware
+- [x] Request/response lifecycle
+- [x] Error-handling middleware
+- [x] Practical: build REST API endpoints
 
 ### Week 4 — PostgreSQL & Prisma
 - [ ] Relational data modeling, SQL basics
