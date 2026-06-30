@@ -40,10 +40,10 @@ Node.js · Express · PostgreSQL · Prisma · JWT · Jest · Supertest · TypeSc
 - [x] Practical: build REST API endpoints
 
 ### Week 4 — PostgreSQL & Prisma
-- [ ] Relational data modeling, SQL basics
-- [ ] Prisma schema & migrations
-- [ ] CRUD via Prisma Client
-- [ ] Practical: connect a database to the Express API
+- [x] Relational data modeling, SQL basics
+- [x] Prisma schema & migrations
+- [x] CRUD via Prisma Client
+- [x] Practical: connect a database to the Express API
 
 ### Week 5 — Authentication & Security
 - [ ] JWT-based authentication
