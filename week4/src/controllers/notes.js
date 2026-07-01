@@ -8,7 +8,8 @@ import {
 
 export const getAll = async (req, res, next) => {
 	try {
-		const { page, limit, isDone, userId } = req.query;
+		const { page, limit, isDone } = req.query;
+		const userId = req.user.userId;
 		const notes = await getNotes({ page, limit, isDone, userId });
 		res.json(notes);
 	} catch (err) {
@@ -18,7 +19,9 @@ export const getAll = async (req, res, next) => {
 
 export const create = async (req, res, next) => {
 	try {
-		const note = await createNote(req.body);
+		const userId = req.user.userId;
+		// res.status(200).json({ ...req.body, userId });
+		const note = await createNote({ ...req.body, userId });
 		res.status(201).json(note);
 	} catch (err) {
 		next(err);
@@ -28,7 +31,8 @@ export const create = async (req, res, next) => {
 export const getById = async (req, res, next) => {
 	try {
 		const { id } = req.params;
-		const note = await getNoteById(id);
+		const userId = req.user.userId;
+		const note = await getNoteById(id, userId);
 		res.json(note);
 	} catch (err) {
 		next(err);
@@ -39,7 +43,9 @@ export const update = async (req, res, next) => {
 	try {
 		const { id } = req.params;
 		const { title, content, isDone } = req.body;
-		const note = await updateNote(id, title, content, isDone);
+		const userId = req.user.userId;
+
+		const note = await updateNote(id, userId, title, content, isDone);
 		res.json(note);
 	} catch (err) {
 		next(err);
@@ -49,7 +55,9 @@ export const update = async (req, res, next) => {
 export const remove = async (req, res, next) => {
 	try {
 		const { id } = req.params;
-		await deleteNote(id);
+		const userId = req.user.userId;
+
+		await deleteNote(id, userId);
 		res.sendStatus(204);
 	} catch (err) {
 		next(err);

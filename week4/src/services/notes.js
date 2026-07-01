@@ -45,21 +45,21 @@ export const createNote = async (note) => {
 	});
 };
 
-export const getNoteById = async (id) => {
+export const getNoteById = async (id, userId) => {
 	const note = await prisma.note.findUnique({ where: { id } });
 
-	if (!note) {
+	if (!note || note.userId !== userId) {
 		throw new AppError('Note not found', 404);
 	}
 
 	return note;
 };
 
-export const updateNote = async (id, title, content, isDone) => {
+export const updateNote = async (id, userId, title, content, isDone) => {
 	if (!id) {
 		throw new AppError('ID format error', 400);
 	}
-	await getNoteById(id);
+	await getNoteById(id, userId);
 
 	return prisma.note.update({
 		where: { id },
@@ -71,8 +71,8 @@ export const updateNote = async (id, title, content, isDone) => {
 	});
 };
 
-export const deleteNote = async (id) => {
-	await getNoteById(id);
+export const deleteNote = async (id, userId) => {
+	await getNoteById(id, userId);
 
 	await prisma.note.delete({ where: { id } });
 };

@@ -1,12 +1,13 @@
 import { Router } from 'express';
 import * as notesController from '../controllers/notes.js';
+import { isTokenValid } from '../middlewares/auth.js';
 
 const notesRouter = Router();
 
-notesRouter.get('/', notesController.getAll);
-notesRouter.post('/', notesController.create);
-notesRouter.get('/:id', notesController.getById);
-notesRouter.put('/:id', notesController.update);
-notesRouter.delete('/:id', notesController.remove);
+notesRouter.get('/', isTokenValid, notesController.getAll);
+notesRouter.post('/', isTokenValid, notesController.create);
+notesRouter.get('/:id', isTokenValid, notesController.getById);
+notesRouter.put('/:id', isTokenValid, notesController.update);
+notesRouter.delete('/:id', isTokenValid, notesController.remove);
 
 export default notesRouter;
