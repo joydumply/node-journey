@@ -46,11 +46,11 @@ Node.js · Express · PostgreSQL · Prisma · JWT · Jest · Supertest · TypeSc
 - [x] Practical: connect a database to the Express API
 
 ### Week 5 — Authentication & Security
-- [ ] JWT-based authentication
-- [ ] Password hashing (bcrypt)
-- [ ] Auth middleware
-- [ ] Security basics: CORS, helmet, rate limiting
-- [ ] Practical: auth endpoints
+- [x] JWT-based authentication
+- [x] Password hashing (bcrypt)
+- [x] Auth middleware
+- [x] Security basics: CORS, helmet, rate limiting
+- [x] Practical: auth endpoints
 
 ### Week 6 — Testing (Jest & Supertest)
 - [ ] Unit tests with Jest
